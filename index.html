@@ -89,16 +89,27 @@
 								<span class="image main"><img src="images/2D_art_sample.png" alt="" /></span>
 								<p>
 									<b>2D 그래픽</b>
-									<br><font size=3>2D 그래픽 요소는 전체적으로 픽셀아트가 과반수를 차지하고 있습니다.
+									<br><font size=3>2D 그래픽 요소는 전체적으로 픽셀아트가 과반수를 차지하고 있습니다만
+									<br>컷씬 이벤트, 캐릭터 일러스트 등의 원화 또한 사용되고 있으며 일부 등장인물의 감정묘사를 위해
+									<br>표정 바리에이션 이미지 또한 추가가 되어 있습니다.
 									</font>
-									<br>
+								<span class="image main"><img src="images/2_1_full.png" alt="" /></span>
+								<span class="image main"><img src="images/3_1_full.png" alt="" /></span>
+								<span class="image main"><img src="images/3_2.png" alt="" /></span>
+								<span class="image main"><img src="images/Player_imotion.png" alt="" /></span>
 								</p>
-								<span class="image main"><img src="images/Underground_art.png"alt="""></span>
+								<hr class="major">
+								<span class="image main"><img src="images/Underground_art.png"alt=""></span>
 								<span class="image main"><img src="images/subtera_subway.png"alt=""></span>
 								<p><b>3D 그래픽</b>
 								<br><font size=3>
 									3D 그래픽의 경우에는 사전에 작업된 2D 원화를 바탕으로 작업을 진행하는 방식으로 진행했습니다.
 									<br>위의 예시 원화처럼 라이팅,환경 묘사의 참고 레퍼런스를 참고하여 디테일한 묘사를 작업했습니다.
+									<br>아래의 이미지는 실제 인 게임에 적용된 맵 모델링의 사진입니다.
+								<span class="image main"><img src="images/Underground_model.png"alt=""></span>
+								<span class="image main"><img src="images/subtera_model.png"alt=""></span>
+								<span class="image main"><img src="images/In_tera_model.png"alt=""></span>
+								<span class="image main"><img src="images/Boss_Stage_model.png"alt=""></span>
 								</font>
 								</p>
 							</article>
@@ -123,6 +134,9 @@
 										</li>
 										<li style="list-style-type: square;">
 											계단이동에 대하여 [2023.11.04] <a href="#MovementSlope" class="icon solid fa-globe"></a>
+										</li>
+										<li style="list-style-type: square;">
+											오디오 믹서 및 UI [2023.11.13] <a href="#AudioMixer" class="icon solid fa-globe"></a>
 										</li>
 									</ul>
 									<!-- <video class="image main" autoplay muted controls> <source type="video/webm" src="video/변경후.webm"></video> -->
@@ -171,8 +185,6 @@
 									<br>프로젝트 진행중 플레이어에게 성취감을 줄 수 있는 컨텐츠가 없다고 판단하여
 									<br>일정 분기마다 선택지를 통해 아래의 스테이터스를 강화할 수 있게 만들었습니다.
 								</p>
-								<div class="close" onclick="history.back()">
-								</div>
 							</article>
 							<article id="CutSceneEvent">
 								<h3 class="major">YarnSpinner & Dotween을 활용한 컷씬 애니메이션</h3>
@@ -196,6 +208,24 @@
 								<p>변경 전</p>
 								<video class="image main" autoplay muted controls> <source type="video/webm" src="video/변경후.webm"></video>
 								변경 후
+							</article>
+							<article id="AudioMixer">
+								<h2 class="major">오디오 믹서</h2>
+								<video class="image main" autoplay muted controls> <source type="video/mp4" src="video/Audio_mixer.mp4"></video>
+								<p>
+									기존의 설정창에 더미로만 있던 슬라이더 UI를 드디어 사용하여
+									<br>각 오디오 믹서의 볼륨을 조절할 수 있게 추가하였습니다.
+									<br>Unity Engine의 기본 오디오 믹서를 사용하였습니다!
+									<br>이 믹서의 경우에는 -80부터 0의 값을 사용해야만 했습니다.
+									<br>하지만, -40부터의 음량 변화는 없었고 0을 넘어가면 음이 뭉개지기 때문에
+									<br>실질적으로는 -40부터 0의 값을 사용했고 이를 0부터 100까지 표기하기 위해
+									<br>아래의 코드로 구현을 하였습니다.
+								<span class="image main"><img src="images/Audio_mixer_code.png" alt=""></span>
+									이 메소드를 Unity Engine의 슬라이더에서 값이 바뀔때 실행하는
+									<br>이벤트에 추가하여 슬라이더의 값이 변할때마다
+									<br>오디오 믹서로 볼륨 조절 및 해당 값 텍스트 출력을 구현했습니다.
+								<span class="image main"><img src="images/Audio_mixer_in_unity.png" alt=""></span>
+								</p>
 							</article>
 						<!-- About -->
 							<!-- <article id="about">
